@@ -1,0 +1,179 @@
+Parse Database classes 
+
+# User 
+
+keys:
+
+objectId: String  // parse created unique object id
+username: String
+password: String
+authData: authData  //  facebook login data
+emailVerified: bool
+email: String
+createdAt: Date
+updatedAt: Date
+ACL: ACL  //  public access control
+facebookName: String
+aboutMe: String
+website: String
+numberOfPosts: Int
+profileImage: PFFile
+
+------
+
+# Product
+
+keys:
+
+objectId: String
+downloadName: String
+download: PFFile
+icon: PFFile
+order: Int
+productIdentifier: String
+subtitle: String
+title: String
+createdAt: Date
+updatedAt: Date
+ACL: ACL
+brand: Pointer<Brand>  //  relation pointer to Brand Class
+brandProductComment: String
+price: Int
+productSize: String
+productColor: String
+quantity: Int
+productLikes: Int
+
+------
+
+# Brand
+
+keys:
+
+objectId: String
+brandName: String
+brandLogo: PFFile
+createdAt: Date
+updatedAt: Date
+ACL: ACL
+product: Pointer<Product>  
+numberOfPosts: Int
+
+------
+
+# BrandTag
+
+keys:
+
+objectId: String
+tagName: String
+xCoordinate: Int
+yCoordinate: Int
+createdAt: Date
+updatedAt: Date
+ACL: ACL
+product: Pointer<Product>
+
+------
+
+# Comment
+
+keys:
+
+objectId: String
+post: Pointer<Post>
+user: Pointer<User>
+content: String
+createdAt: Date
+updatedAt: Date
+ACL: ACL
+
+------
+
+# Post
+
+keys:
+
+objectId: String
+createdAt: Date
+updatedAt: Date
+ACL: ACL
+username: String
+facebookName: String
+user: Pointer<User>
+postImage: PFFile
+comment: String
+userComments: Pointer<Comment>
+postTags: Array<PostTag>
+numberOfLikes: Int
+
+------
+
+#PostTag
+
+keys:
+
+objectId: String
+tagName: String
+xCoordinate: Int
+yCoordinate: Int
+createdAt: Date
+updatedAt: Date
+ACL: ACL
+post: Pointer<Post>
+
+------
+
+# FollowUser
+
+keys:
+
+objectId: String
+from: Pointer<User>
+to: Pointer<User>
+createdAt: Date
+updatedAt: Date
+ACL: ACL
+
+------
+
+# FollowBrand
+
+keys:
+
+objectId: String
+from: Pointer<User>
+to: Pointer<Brand>
+createdAt: Date
+updatedAt: Date
+ACL: ACL
+
+-----
+
+# Likes
+
+keys:
+
+post: Pointer<Post>
+userPost: Pointer<User>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
